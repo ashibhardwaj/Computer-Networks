@@ -1,3 +1,4 @@
+// Simulation of send and wait protocol
 #include<iostream>
 #include<stdlib.h>
 using namespace std;
