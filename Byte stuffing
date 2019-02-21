@@ -1,1 +1,42 @@
-
+#include<stdio.h>
+using namespace std;
+int main()
+{
+    int i,j,k,data[100],n;
+    printf("Enter no. of bits:\n");
+    scanf("%d",&n);    
+    printf("Enter data to be sent:\n");
+    for(i=0;i<n;i++)
+        scanf("%d",&data[i]);    
+    printf("The array entered is \n");
+    for(i=0;i<n;i++)
+        printf("%d",data[i]); 
+    printf("\n");
+    for(i=0;i<n;i++)
+    {
+        if(data[i]==0 && data[i+1]==1 && data[i+2]==1 && data[i+3]==1 && data[i+4]==1 && data[i+5]==1 && data[i+6]==1 && data[i+7]==0)
+        {            
+            i=i+8;
+            for(j=i+8;j>=i;j--)
+            {
+                data[j+8]=data[j];
+                n++;
+            }
+            for(k=0;k<8;k++)
+            {
+                if(k==0 || k==7)
+                    data[i]=0;
+                else
+                    data[i]=1;
+                i++;
+            }
+        }
+    }
+    printf("The byte stuffed array is:\n");
+    printf("01111110");
+    for(i=0;i<n;i++)
+        printf("%d",data[i]);
+    printf("01111110");
+    printf("\n");
+    return 0;
+}
